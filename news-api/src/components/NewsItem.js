@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 const NewsItemBlock = styled.div`
   display: flex;
-  .thmbnail {
+  .thumbnail {
     margin-right: 1rem;
     img {
       display: block;
-      widh: 160px;
+      width: 160px;
       height: 100px;
       object-fit: cover;
     }
