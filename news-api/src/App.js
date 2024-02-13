@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import axios from 'axios';
-import NewsList from './components/NewsList';
+import { Route, Routes } from 'react-router-dom';
+import NewsPage from './pages/NewsPage';
 
 const App = () => {
   /*
@@ -31,7 +30,12 @@ const App = () => {
     </div>
   );
 */
-  return <NewsList />;
+  return (
+    <Routes>
+      <Route path="/" element={<NewsPage />} />
+      <Route path="/:category" element={<NewsPage />} />
+    </Routes>
+  );
 };
 
 export default App;
