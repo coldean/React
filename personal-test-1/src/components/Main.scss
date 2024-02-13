@@ -1,0 +1,33 @@
+.Main {
+  width: 100vw;
+  height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 50px;
+  background-color: orange;
+}
+
+.Title {
+  font-size: 9vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: aliceblue;
+  position: relative;
+  top: 30px;
+}
+
+.Button {
+  transition: width 0.1s linear;
+  width: 95vw;
+  height: 7vh;
+  font-size: large;
+  color: white;
+  background-color: black;
+
+  &:hover {
+    width: 20vw;
+    color: rgb(175, 93, 21);
+    background-color: rgb(116, 255, 239);
+    border-style: none;
+  }
+}
