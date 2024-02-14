@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import "./LadderGameCount.scss";
 
 const LadderGameCount = ({ editCount }) => {
   const [value, setValue] = useState(2);
@@ -21,8 +22,13 @@ const LadderGameCount = ({ editCount }) => {
   );
 
   return (
-    <form onSubmit={onSubmit}>
-      <input placeholder="갯수 입력" value={value} onChange={onChange} />
+    <form className="Form" onSubmit={onSubmit}>
+      <input
+        className="Input"
+        placeholder="갯수 입력"
+        value={value}
+        onChange={onChange}
+      />
     </form>
   );
 };
