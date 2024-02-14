@@ -1,13 +1,28 @@
-const LadderGameSelect = (count) => {
-  const buttons = [];
-  for (let i = 0; i < count; i++) {
-    buttons.push({ id: i, value: 0 });
-  }
+import { useState, useEffect } from "react";
+import LadderGameLadder from "./LadderGameLadder";
+
+const LadderGameSelect = ({ count }) => {
+  const [buttons, setButtons] = useState([]);
+  const [counts, setCounts] = useState(0);
+
+  useEffect(() => {
+    const newButtons = [];
+    for (let i = 0; i < count; i++) {
+      newButtons.push({ id: i, name: "test" });
+    }
+    setButtons(newButtons);
+  }, [count]);
+
   return (
     <div>
-      {buttons.map((id, value) => {
-        <input key={id} value={value} />;
-      })}
+      <div>
+        {buttons.map(({ id, name }) => (
+          <button key={id}>{name}</button>
+        ))}
+      </div>
+      <div>
+        <LadderGameLadder />
+      </div>
     </div>
   );
 };
