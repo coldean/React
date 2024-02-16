@@ -1,27 +1,39 @@
 import { useState, useEffect } from "react";
 import LadderGameLadder from "./LadderGameLadder";
+import "./LadderGameSelect.scss";
 
 const LadderGameSelect = ({ count }) => {
   const [buttons, setButtons] = useState([]);
-  const [counts, setCounts] = useState(0);
+  const [selectedButton, setSelectedButton] = useState(0);
 
   useEffect(() => {
     const newButtons = [];
     for (let i = 0; i < count; i++) {
-      newButtons.push({ id: i, name: "test" });
+      newButtons.push({ id: i, name: "test " + i });
     }
     setButtons(newButtons);
   }, [count]);
 
+  const onClick = (id) => () => {
+    setSelectedButton(id);
+  };
+
   return (
-    <div>
+    <div className="LadderGameSelect-Main">
       <div>
         {buttons.map(({ id, name }) => (
-          <button key={id}>{name}</button>
+          <button key={id} onClick={onClick(id)}>
+            {name}
+          </button>
         ))}
+        {selectedButton}
       </div>
       <div>
-        <LadderGameLadder />
+        <LadderGameLadder
+          count={count}
+          buttons={buttons}
+          selectedButton={selectedButton}
+        />
       </div>
     </div>
   );
