@@ -1,17 +1,21 @@
 .LadderGameLadder-Main-Vertical {
   display: flex;
   margin-left: 20vw;
+  padding: 0;
 }
 
 .LadderGameLadder-Main-Horizontal {
   display: flex;
   margin-left: 20vw;
+  padding: 0;
 }
 
 .Ladder-Vertical {
   //border-left: thick solid #32a1ce;
   width: 0.5vw;
   height: 10vh;
+  margin: 0;
+  padding: 0;
 
   background-color: black;
   color: white;
@@ -20,8 +24,8 @@
 .Ladder-Horizontal {
   width: 5vw;
   height: 0.5vw;
-  margin-left: 0vw;
-  margin-top: 10vh;
+  margin-left: 0.5vw;
+  padding: 0;
   background-color: black;
   color: white;
 }
