@@ -25,19 +25,25 @@ const LadderGameLadder = ({ count, buttons, selectedButton }) => {
   }, [count]);
 
   return (
-    <div className="LadderGameLadder-Main-Horizontal">
-      <>
-        {horLadder.map(({ id }) => {
-          <div className="LadderGameLadder-Main-Vertical">
-            {verLadder.map(({ id }) => (
-              <>
-                <div className="Ladder-Vertical">test</div>
-                <div className="Ladder-Horizontal">test</div>
-              </>
-            ))}
-          </div>;
-        })}
-      </>
+    <div>
+      {horLadder.map(
+        (
+          { id: horId } // horLadder를 map하여 각 요소에 대해 JSX 반환
+        ) => (
+          <div key={horId} className="LadderGameLadder-Main-Vertical">
+            {verLadder.map(
+              (
+                { id: verId } // verLadder를 map하여 각 요소에 대해 JSX 반환
+              ) => (
+                <div key={verId}>
+                  <div className="Ladder-Vertical">test</div>
+                  <div className="Ladder-Horizontal">test</div>
+                </div>
+              )
+            )}
+          </div>
+        )
+      )}
     </div>
   );
 };
