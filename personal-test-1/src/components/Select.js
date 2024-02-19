@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-import LadderGameLadder from "./LadderGameLadder";
-import "./LadderGameSelect.scss";
+import { useState, useEffect, useCallback } from "react";
+import LadderGameLadder from "./Ladder";
+import "./Select.scss";
 
 const LadderGameSelect = ({ count }) => {
   const [buttons, setButtons] = useState([]);
   const [selectedButton, setSelectedButton] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
+  const [selectedLines, setSelectedLines] = useState();
 
   useEffect(() => {
     const newButtons = [];
@@ -18,6 +20,14 @@ const LadderGameSelect = ({ count }) => {
     setSelectedButton(id);
   };
 
+  const getSelectedLines = useCallback((lines) => {
+    setSelectedLines(lines);
+  });
+
+  const checkStart = useCallback((check) => {
+    setIsStarted(check);
+  });
+
   return (
     <div className="LadderGameSelect-Main">
       <div>
@@ -29,11 +39,15 @@ const LadderGameSelect = ({ count }) => {
         {selectedButton}
       </div>
       <div>
-        <LadderGameLadder
-          count={count}
-          buttons={buttons}
-          selectedButton={selectedButton}
-        />
+        {isStarted ? null : (
+          <LadderGameLadder
+            count={count}
+            buttons={buttons}
+            selectedButton={selectedButton}
+            getSelectedLines={getSelectedLines}
+            checkStart={checkStart}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
-import "./LadderGameLadder.scss";
+import "./Ladder.scss";
 
-const LadderGameLadder = ({ count }) => {
+const LadderGameLadder = ({ count, getSelectedLines, checkStart }) => {
   const ladderStep = 4;
 
   const [verLadder, setVerLadder] = useState([]);
@@ -69,6 +69,7 @@ const LadderGameLadder = ({ count }) => {
       }
     }
     setSelectedLines(selected);
+    getSelectedLines(selected);
   }, [count, ladderStep]);
 
   return (
@@ -78,9 +79,9 @@ const LadderGameLadder = ({ count }) => {
           {verLadder.map(({ id: verId }) => (
             <div key={verId}>
               {horId === ladderStep ? ( // 세로
-                <div className="Ladder-Vertical-last">test</div>
+                <div className="Ladder-Vertical-last"></div>
               ) : (
-                <div className="Ladder-Vertical">test</div>
+                <div className="Ladder-Vertical"></div>
               )}
 
               {verId === count - 1 || horId === ladderStep ? null : ( // 가로
@@ -88,9 +89,7 @@ const LadderGameLadder = ({ count }) => {
                   className={`Ladder-Horizontal ${
                     selectedLines[horId][verId] ? "selected" : ""
                   }`}
-                >
-                  test
-                </div>
+                ></div>
               )}
             </div>
           ))}

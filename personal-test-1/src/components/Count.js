@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import "./LadderGameCount.scss";
+import "./Count.scss";
 
 const LadderGameCount = ({ editCount }) => {
   const [value, setValue] = useState(2);

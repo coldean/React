@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
-import LadderGameSelect from "../components/LadderGameSelect";
-import LadderGameLadder from "../components/LadderGameLadder";
-import LadderGameCount from "../components/LadderGameCount";
+import LadderGameSelect from "../components/Select";
+import LadderGameLadder from "../components/Ladder";
+import LadderGameCount from "../components/Count";
 import "./LadderGame.scss";
 
 const LadderGame = () => {
