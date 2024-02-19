@@ -10,33 +10,36 @@
   padding: 0;
 }
 
+@mixin ladderVertical($margin-right) {
+  width: 0.5vw;
+  height: 8vh;
+  margin-right: $margin-right;
+  padding: 0;
+
+  background-color: black;
+  color: white;
+}
 .Ladder-Vertical {
   //border-left: thick solid #32a1ce;
-  width: 0.5vw;
-  height: 10vh;
-  margin: 0;
-  padding: 0;
-
-  background-color: black;
-  color: white;
+  @include ladderVertical(0);
 }
-
 .Ladder-Vertical-last {
   //border-left: thick solid #32a1ce;
-  width: 0.5vw;
-  height: 10vh;
-  margin-right: 5vw;
-  padding: 0;
-
-  background-color: black;
-  color: white;
+  @include ladderVertical(5vw);
 }
 
-.Ladder-Horizontal {
+@mixin ladderHorizontal($background-color) {
   width: 5vw;
   height: 0.5vw;
   margin-left: 0.5vw;
   padding: 0;
-  background-color: black;
+  background-color: $background-color;
   color: white;
+}
+.Ladder-Horizontal {
+  @include ladderHorizontal(black);
+}
+
+.selected {
+  @include ladderHorizontal(white);
 }
