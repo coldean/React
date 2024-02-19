@@ -36,8 +36,14 @@ const LadderGameLadder = ({ count, buttons, selectedButton }) => {
                 { id: verId } // verLadder를 map하여 각 요소에 대해 JSX 반환
               ) => (
                 <div key={verId}>
-                  <div className="Ladder-Vertical">test</div>
-                  <div className="Ladder-Horizontal">test</div>
+                  {horId === 3 ? (
+                    <div className="Ladder-Vertical-last">test</div>
+                  ) : (
+                    <div className="Ladder-Vertical">test</div>
+                  )}
+                  {verId === count - 1 || horId === 3 ? null : (
+                    <div className="Ladder-Horizontal">test</div>
+                  )}
                 </div>
               )
             )}
