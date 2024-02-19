@@ -40,6 +40,6 @@
   @include ladderHorizontal(black);
 }
 
-.selected {
-  @include ladderHorizontal(white);
+.Ladder-Horizontal.selected {
+  background-color: white;
 }
