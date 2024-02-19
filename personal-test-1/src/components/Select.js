@@ -1,12 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
-import LadderGameLadder from "./Ladder";
+import Ladder from "./Ladder";
+import LadderStart from "./LadderStart";
 import "./Select.scss";
 
 const LadderGameSelect = ({ count }) => {
   const [buttons, setButtons] = useState([]);
   const [selectedButton, setSelectedButton] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
-  const [selectedLines, setSelectedLines] = useState();
+  const [DeletedLines, setDeletedLines] = useState();
+
+  const ladderStep = 4;
 
   useEffect(() => {
     const newButtons = [];
@@ -16,12 +19,23 @@ const LadderGameSelect = ({ count }) => {
     setButtons(newButtons);
   }, [count]);
 
+  useEffect(() => {
+    // isStarted 값이 변경될 때마다 실행되는 코드
+    // 여기서 원하는 동작을 수행할 수 있습니다.
+    console.log("isStarted 값 변경됨:", isStarted);
+  }, [isStarted]);
+
+  useEffect(() => {
+    console.log("selectedButton 값 변경: ", selectedButton);
+  }, [selectedButton]);
+
   const onClick = (id) => () => {
     setSelectedButton(id);
+    setIsStarted(true);
   };
 
-  const getSelectedLines = useCallback((lines) => {
-    setSelectedLines(lines);
+  const getDeletedLines = useCallback((lines) => {
+    setDeletedLines(lines);
   });
 
   const checkStart = useCallback((check) => {
@@ -39,12 +53,20 @@ const LadderGameSelect = ({ count }) => {
         {selectedButton}
       </div>
       <div>
-        {isStarted ? null : (
-          <LadderGameLadder
+        {isStarted ? (
+          <LadderStart
             count={count}
+            ladderStep={ladderStep}
+            deletedLines={DeletedLines}
+            selectedButton={selectedButton}
+          />
+        ) : (
+          <Ladder
+            count={count}
+            ladderStep={ladderStep}
             buttons={buttons}
             selectedButton={selectedButton}
-            getSelectedLines={getSelectedLines}
+            getDeletedLines={getDeletedLines}
             checkStart={checkStart}
           />
         )}

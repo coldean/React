@@ -1,18 +1,21 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./Ladder.scss";
 
-const LadderGameLadder = ({ count, getSelectedLines, checkStart }) => {
-  const ladderStep = 4;
-
+const LadderGameLadder = ({
+  count,
+  ladderStep,
+  getDeletedLines,
+  checkStart,
+}) => {
   const [verLadder, setVerLadder] = useState([]);
   const [horLadder, setHorLadder] = useState([]);
-  const [selectedLines, setSelectedLines] = useState();
+  const [DeletedLines, setDeletedLines] = useState();
 
-  const selected = [];
+  const deleted = [];
   for (let i = 0; i < ladderStep; i++) {
-    selected.push([]);
+    deleted.push([]);
     for (let j = 0; j < count - 1; j++) {
-      selected[i].push(false); // 초기값으로 false 넣음
+      deleted[i].push(false); // 초기값으로 false 넣음
     }
   }
 
@@ -37,39 +40,39 @@ const LadderGameLadder = ({ count, getSelectedLines, checkStart }) => {
       for (let i = 0; i < ladderStep; i++) {
         if (Math.random() > 0.6 && j === 0) {
           // 현재 열이 첫 번째 열일 때만 선택
-          selected[i][j] = true;
+          deleted[i][j] = true;
           checkFull = false;
           checkEmpty -= 1;
-        } else if (!selected[i][j - 1] && j !== 0) {
+        } else if (!deleted[i][j - 1] && j !== 0) {
           // 이전 열이 false일 때 선택
-          selected[i][j] = true;
+          deleted[i][j] = true;
           checkFull = false;
           checkEmpty -= 1;
         } else if (Math.random() > 0.6) {
-          selected[i][j] = true;
+          deleted[i][j] = true;
           checkFull = false;
           checkEmpty -= 1;
         }
       }
       if (checkFull) {
         var num = Math.floor(Math.random() * ladderStep);
-        selected[num][j] = true;
+        deleted[num][j] = true;
       }
       if (checkEmpty <= 0) {
         while (true) {
           var num = Math.floor(Math.random() * ladderStep);
           if (j === 0) {
-            selected[num][j] = false;
+            deleted[num][j] = false;
             break;
-          } else if (selected[num][j - 1]) {
-            selected[num][j] = false;
+          } else if (deleted[num][j - 1]) {
+            deleted[num][j] = false;
             break;
           }
         }
       }
     }
-    setSelectedLines(selected);
-    getSelectedLines(selected);
+    setDeletedLines(deleted);
+    getDeletedLines(deleted);
   }, [count, ladderStep]);
 
   return (
@@ -87,7 +90,7 @@ const LadderGameLadder = ({ count, getSelectedLines, checkStart }) => {
               {verId === count - 1 || horId === ladderStep ? null : ( // 가로
                 <div
                   className={`Ladder-Horizontal ${
-                    selectedLines[horId][verId] ? "selected" : ""
+                    DeletedLines[horId][verId] ? "deleted" : ""
                   }`}
                 ></div>
               )}
