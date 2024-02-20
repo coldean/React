@@ -23,9 +23,15 @@
   //border-left: thick solid #32a1ce;
   @include ladderVertical(0);
 }
+.Ladder-Vertical.selected {
+  background-color: red;
+}
 .Ladder-Vertical-last {
   //border-left: thick solid #32a1ce;
   @include ladderVertical(5vw);
+}
+.Ladder-Vertical-last.selected {
+  background-color: red;
 }
 
 @mixin ladderHorizontal($background-color) {
@@ -44,6 +50,6 @@
   background-color: white;
 }
 
-.Ladder-Horizontal.seleted {
+.Ladder-Horizontal.selected {
   background-color: red;
 }
