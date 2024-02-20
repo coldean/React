@@ -6,6 +6,11 @@ const LadderGameLadder = ({ count, ladderStep, getDeletedLines }) => {
   const [horLadder, setHorLadder] = useState([]);
   const [DeletedLines, setDeletedLines] = useState();
 
+  /////////////////////
+  ///사다리 생성 확률///
+  const stepPercent = 0.4;
+  /////////////////////
+
   const deleted = [];
   for (let i = 0; i < ladderStep; i++) {
     deleted.push([]);
@@ -33,7 +38,7 @@ const LadderGameLadder = ({ count, ladderStep, getDeletedLines }) => {
       var checkFull = true;
       var checkEmpty = ladderStep;
       for (let i = 0; i < ladderStep; i++) {
-        if (Math.random() > 0.6 && j === 0) {
+        if (Math.random() > stepPercent && j === 0) {
           // 현재 열이 첫 번째 열일 때만 선택
           deleted[i][j] = true;
           checkFull = false;
@@ -43,7 +48,7 @@ const LadderGameLadder = ({ count, ladderStep, getDeletedLines }) => {
           deleted[i][j] = true;
           checkFull = false;
           checkEmpty -= 1;
-        } else if (Math.random() > 0.6) {
+        } else if (Math.random() > stepPercent) {
           deleted[i][j] = true;
           checkFull = false;
           checkEmpty -= 1;

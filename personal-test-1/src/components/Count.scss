@@ -9,12 +9,14 @@
 
 .Input {
   width: 20vw;
-  height: 5vh;
+  height: 10vh;
+  line-height: 5vh;
   margin: auto;
-  margin-top: 2%;
-  padding-top: 20%;
+  margin-top: 1.5%;
+
   border-style: solid;
   border-width: 10px;
   border-color: rgb(115, 84, 84);
+
   text-align: center;
 }

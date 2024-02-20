@@ -12,33 +12,32 @@
 }
 
 @mixin ladderVertical($margin-right) {
-  width: 0.5vw;
-  height: 8vh;
+  width: 0.3vw;
+  height: 3vh;
   margin-right: $margin-right;
+  margin-top: -0.3vw;
   padding: 0;
 
   background-color: black;
   color: white;
 }
 .Ladder-Vertical {
-  //border-left: thick solid #32a1ce;
   @include ladderVertical(0);
 }
 .Ladder-Vertical.selected {
   background-color: red;
 }
 .Ladder-Vertical-last {
-  //border-left: thick solid #32a1ce;
   @include ladderVertical(5vw);
 }
 .Ladder-Vertical-last.selected {
-  background-color: red;
+  background-color: rgb(0, 161, 164);
 }
 
 @mixin ladderHorizontal($background-color) {
   width: 5vw;
-  height: 0.5vw;
-  margin-left: 0.5vw;
+  height: 0.3vw;
+  margin-left: 0.3vw;
   padding: 0;
   background-color: $background-color;
   color: white;

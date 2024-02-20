@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Ladder.scss";
 
-const LadderStart = ({ count, ladderStep, deletedLines, selectedButton }) => {
+const LadderStart = ({
+  count,
+  ladderStep,
+  deletedLines,
+  selectedButton,
+  finalId,
+}) => {
   const [verLadder, setVerLadder] = useState([]);
   const [horLadder, setHorLadder] = useState([]);
   const [routeHor, setRouteHor] = useState([]);
@@ -72,6 +78,7 @@ const LadderStart = ({ count, ladderStep, deletedLines, selectedButton }) => {
 
     setRouteHor(followingHor);
     setRouteVer(followingVer);
+    finalId(curVertical);
   }, [count, deletedLines, ladderStep, selectedButton]);
 
   return (
