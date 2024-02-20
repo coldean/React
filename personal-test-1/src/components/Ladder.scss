@@ -1,13 +1,14 @@
 .LadderGameLadder-Main-Vertical {
   display: flex;
-  margin-left: 20vw;
   padding: 0;
+  margin-left: 5vw;
+  text-align: center;
 }
 
 .LadderGameLadder-Main-Horizontal {
   display: flex;
-  margin-left: 20vw;
   padding: 0;
+  margin-left: 5vw;
 }
 
 @mixin ladderVertical($margin-right) {
@@ -47,7 +48,7 @@
 }
 
 .Ladder-Horizontal.deleted {
-  background-color: white;
+  background-color: transparent;
 }
 
 .Ladder-Horizontal.selected {

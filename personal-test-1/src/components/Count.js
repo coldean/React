@@ -1,8 +1,9 @@
 import { useState, useCallback } from "react";
 import "./Count.scss";
 
-const LadderGameCount = ({ editCount }) => {
+const LadderGameCount = ({ editCount, setStart }) => {
   const [value, setValue] = useState(2);
+
   const onChange = useCallback((e) => {
     const newValue = e.target.value;
     // 입력된 값이 숫자로 변환 가능한지 또는 빈 문자열인지 확인
@@ -17,6 +18,7 @@ const LadderGameCount = ({ editCount }) => {
     (e) => {
       editCount(value);
       e.preventDefault();
+      setStart(false);
     },
     [value, editCount]
   );

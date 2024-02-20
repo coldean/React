@@ -1,12 +1,7 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Ladder.scss";
 
-const LadderGameLadder = ({
-  count,
-  ladderStep,
-  getDeletedLines,
-  checkStart,
-}) => {
+const LadderGameLadder = ({ count, ladderStep, getDeletedLines }) => {
   const [verLadder, setVerLadder] = useState([]);
   const [horLadder, setHorLadder] = useState([]);
   const [DeletedLines, setDeletedLines] = useState();

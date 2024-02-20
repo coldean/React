@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Ladder.scss";
 
 const LadderStart = ({ count, ladderStep, deletedLines, selectedButton }) => {
@@ -103,9 +103,7 @@ const LadderStart = ({ count, ladderStep, deletedLines, selectedButton }) => {
                       ? "deleted"
                       : ""
                   }`}
-                >
-                  test
-                </div>
+                ></div>
               )}
             </div>
           ))}
