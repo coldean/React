@@ -9,7 +9,7 @@ import "./Select.scss";
 const LadderGameSelect = ({ count, setStart, isStarted }) => {
   const [inputs, setInputs] = useState([]);
   const [buttons, setButtons] = useState([]);
-  const [results, setResults] = useState([{ id: 0, text: "null" }]); //꼼수 위해 억지 값 하나 저장, 밑에서 삭제 예정
+  const [results, setResults] = useState([{ id: 0, text: "null" }]); //꼼수 위해 억지 값 하나 저장
   const [final, setFinal] = useState(0);
   const [selectedButton, setSelectedButton] = useState(null);
   const [deletedLines, setDeletedLines] = useState();
