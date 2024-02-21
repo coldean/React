@@ -37,7 +37,7 @@ $delay: 2;
 
   @for $i from 0 through 20 {
     &.delay-#{$i} {
-      animation-delay: #{$i * 1}s;
+      animation-delay: #{$i * 0.3}s;
     }
   }
 }
@@ -79,7 +79,7 @@ $delay: 2;
 
   @for $i from 0 through 20 {
     &.delay-#{$i} {
-      animation-delay: #{$i * 1}s;
+      animation-delay: #{$i * 0.3}s;
     }
   }
 }

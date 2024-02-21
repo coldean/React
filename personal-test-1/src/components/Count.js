@@ -27,7 +27,7 @@ const LadderGameCount = ({ editCount, setStart }) => {
     <form className="Form" onSubmit={onSubmit}>
       <input
         className="Input"
-        placeholder="갯수 입력"
+        placeholder="개수 입력"
         value={value}
         onChange={onChange}
       />
