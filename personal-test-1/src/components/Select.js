@@ -23,7 +23,7 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
     const newButtons = [];
     const newInputs = [];
     const newResults = [];
-    results.pop();
+    //results.pop();
     for (let i = 0; i < count; i++) {
       newButtons.push({ id: i, name: i + 1 });
       newInputs.push({ id: i, value: i + 1 });
@@ -32,6 +32,7 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
     setInputs(newInputs);
     setButtons(newButtons);
     setResults(newResults);
+    setFinal(0);
   }, [count]);
 
   const onClick = (id) => () => {
@@ -115,11 +116,13 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
             className="SelectInput"
             name={id}
             onChange={(e) => onChangeResult(e, id)}
-            text={text}
+            value={text}
           ></input>
         ))}
       </div>
-      <p>result: {results[final].text}</p>
+      <p className={`Result ${isStarted ? "visible" : "invisible"}`}>
+        result: {results[final].text}
+      </p>
     </div>
   );
 };
