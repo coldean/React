@@ -46,11 +46,6 @@ $delay: 0.3;
 .Ladder-Vertical-last {
   @include ladderVertical(5vw);
 }
-/*
-.Ladder-Vertical-last.selected {
-  background-color: rgb(0, 161, 164);
-}
-*/
 
 /////////////////////////////////////// 가로
 @mixin ladderHorizontal($background-color) {
@@ -94,30 +89,36 @@ $delay: 0.3;
 @keyframes follow-hor {
   0% {
     width: 0%;
+    //height: 0.5vw;
     background-color: black;
   }
   100% {
     width: 100%;
+    //height: 0.5vw;
     background-color: red;
   }
 }
 @keyframes follow-hor-reverse {
   0% {
     width: 0%;
+    //height: 0.5vw;
     background-color: black;
   }
   100% {
     width: 100%;
+    //height: 0.5vw;
     background-color: red;
   }
 }
 @keyframes follow-ver {
   0% {
     height: 0%;
+    //width: 0.5vw;
     background-color: black;
   }
   100% {
     height: 100%;
+    //width: 0.5vw;
     background-color: red;
   }
 }

@@ -45,8 +45,7 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
         console.log("time passed " + resultDelay);
       }, (resultDelay + 2) * 300); // resultDelay 시간 이후에 결과를 표시
 
-      // useEffect 내부에서 반환된 함수는 clean-up 함수로, 컴포넌트가 언마운트되거나 업데이트되기 전에 실행됩니다.
-      return () => clearTimeout(timer); // 컴포넌트가 언마운트되거나 업데이트되기 전에 타이머를 클리어하여 메모리 누수를 방지합니다.
+      return () => clearTimeout(timer);
     }
   }, [isStarted, count, resultDelay]);
 
@@ -109,9 +108,8 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
             {name}
           </button>
         ))}
-        {selectedButton}
       </div>
-      <div>
+      <div className={`Visible ${isStarted ? "visible" : "invisible"}`}>
         {isStarted ? (
           <LadderStart
             count={count}
@@ -140,7 +138,11 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
           ></input>
         ))}
       </div>
-      <p className={`Result ${resultVisible ? "visible" : "invisible"}`}>
+      <p
+        className={`Visible ${
+          resultVisible ? "visible result" : "invisible result"
+        }`}
+      >
         result: {results[final].text}
       </p>
     </div>

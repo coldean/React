@@ -98,6 +98,7 @@ const LadderStart = ({
 
   return (
     <div>
+      {console.log("rendered")}
       {horLadder.map(({ id: horId }) => (
         <div key={horId} className="LadderGameLadder-Main-Vertical">
           {verLadder.map(({ id: verId }) => (
