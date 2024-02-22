@@ -13,6 +13,8 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
   const [final, setFinal] = useState(0);
   const [selectedButton, setSelectedButton] = useState(null);
   const [deletedLines, setDeletedLines] = useState();
+  const [resultDelay, setResultDelay] = useState(0);
+  const [resultVisible, setResultVisible] = useState(false);
 
   /////////////////////////
   ///////사다리 깊이////////
@@ -34,6 +36,19 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
     setResults(newResults);
     setFinal(0);
   }, [count]);
+
+  useEffect(() => {
+    setResultVisible(false);
+    if (isStarted) {
+      const timer = setTimeout(() => {
+        setResultVisible(true); // 결과를 표시하기 위한 상태를 변경
+        console.log("time passed " + resultDelay);
+      }, (resultDelay + 2) * 300); // resultDelay 시간 이후에 결과를 표시
+
+      // useEffect 내부에서 반환된 함수는 clean-up 함수로, 컴포넌트가 언마운트되거나 업데이트되기 전에 실행됩니다.
+      return () => clearTimeout(timer); // 컴포넌트가 언마운트되거나 업데이트되기 전에 타이머를 클리어하여 메모리 누수를 방지합니다.
+    }
+  }, [isStarted, count, resultDelay]);
 
   const onClick = (id) => () => {
     setSelectedButton(id);
@@ -71,6 +86,10 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
     setFinal(final);
   });
 
+  const getDelay = useCallback((time) => {
+    setResultDelay(time);
+  });
+
   return (
     <div className="LadderGameSelect-Main">
       <div>
@@ -100,6 +119,7 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
             deletedLines={deletedLines}
             selectedButton={selectedButton}
             finalId={finalId}
+            getDelay={getDelay}
           />
         ) : (
           <Ladder
@@ -120,7 +140,7 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
           ></input>
         ))}
       </div>
-      <p className={`Result ${isStarted ? "visible" : "invisible"}`}>
+      <p className={`Result ${resultVisible ? "visible" : "invisible"}`}>
         result: {results[final].text}
       </p>
     </div>
