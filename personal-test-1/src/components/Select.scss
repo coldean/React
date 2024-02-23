@@ -7,6 +7,7 @@
   flex-direction: column;
   width: 100%;
   height: 30vh;
+  max-width: 100wv;
   //margin-left: -15vw;
   margin-top: 25vh;
   margin-bottom: 0;
@@ -19,6 +20,16 @@
   margin: 0.6vw;
   vertical-align: middle;
   text-align: center;
+  border: none;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 90%,
+    rgba(148, 187, 233, 0) 100%
+  );
+  &:focus {
+    outline: none;
+  }
 }
 
 .SelectButton {
@@ -28,6 +39,13 @@
   margin-bottom: 5vh;
   vertical-align: middle;
   text-align: center;
+  border: none;
+  background: rgb(189, 189, 189);
+  background: radial-gradient(
+    circle,
+    rgb(223, 223, 223) 80%,
+    rgba(226, 226, 226, 0) 100%
+  );
 }
 
 @mixin result {
@@ -47,7 +65,7 @@
 .Visible {
   &.visible {
     visibility: visible;
-
+    //transition: 1 0.5s ease;
     &.result {
       @include result;
     }

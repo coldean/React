@@ -29,10 +29,33 @@
   line-height: 5vh;
   margin: auto;
   margin-top: 1.5%;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: rgb(115, 84, 84);
-
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(148, 187, 233, 0) 100%
+  );
+  border: none;
   text-align: center;
+  animation: inputAni 3s ease-in-out infinite;
+  transform-origin: 50% 50%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@keyframes inputAni {
+  0% {
+    width: 20vw;
+    height: 10vh;
+  }
+  50% {
+    width: 23vw;
+    height: 10vh;
+  }
+  100% {
+    width: 20vw;
+    height: 10vh;
+  }
 }

@@ -9,7 +9,7 @@
   background: rgb(85, 85, 227);
   background: linear-gradient(
     0deg,
-    rgba(113, 133, 202, 0) 0%,
+    rgba(255, 255, 255, 1) 0%,
     rgba(138, 176, 179, 0.5523459383753502) 50%,
     rgba(117, 141, 107, 0.583158263305322) 73%,
     rgba(255, 165, 0, 1) 100%
@@ -25,22 +25,47 @@
   background: rgb(255, 106, 0);
   background: linear-gradient(
     149deg,
-    rgba(234, 80, 14, 1) 0%,
-    rgba(255, 241, 81, 0) 40%
+    rgba(234, 80, 14, 0.8) 0%,
+    rgba(40, 36, 255, 0.1) 100%
   );
   background-size: 300% 300%;
-  animation: bcm 10s ease-in-out infinite;
+  animation: bcm 20s ease-in-out infinite;
 }
 @keyframes bcm {
   0% {
     background-position: 50% 0%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 100% 100%;
   }
   100% {
     background-position: 50% 0%;
   }
+}
+
+.Fixed-Count {
+  position: fixed;
+  top: 4.55vh;
+  left: 41.5%;
+  background-color: rgba(255, 255, 255, 0);
+  color: black;
+  z-index: 1;
+}
+
+.Fixed-Name {
+  position: fixed;
+  top: 20vh;
+  left: 47.5%;
+  background-color: rgba(255, 255, 255, 0);
+  z-index: 1;
+}
+
+.Fixed-Result {
+  position: fixed;
+  top: 79vh;
+  left: 47.5%;
+  background-color: rgba(255, 255, 255, 0);
+  z-index: 1;
 }
 
 .LadderGameCount-Main {

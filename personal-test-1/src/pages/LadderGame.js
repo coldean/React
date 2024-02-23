@@ -19,6 +19,9 @@ const LadderGame = () => {
   return (
     <>
       <div className="Ambient-Background" />
+      <p className="Fixed-Count">개수 입력</p>
+      <p className="Fixed-Name">이름 입력</p>
+      <p className="Fixed-Result">결과 입력</p>
       <div className="LadderGame-Main">
         <LadderGameCount
           className="LadderGameCount-Main"

@@ -22,10 +22,36 @@ html {
     rgba(117, 141, 107, 1) 53%,
     rgba(138, 176, 179, 1) 90%
   );
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: mainAni 3s ease-in-out infinite;
+}
+
+@keyframes mainAni {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 120%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes buttonAni {
+  0% {
+    width: 20%;
+  }
+  50% {
+    width: 30%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 .Title {
@@ -47,6 +73,7 @@ html {
 
   &:hover {
     .Button {
+      transition: width 0.5s ease;
       width: 20%;
       color: rgb(175, 93, 21);
       background: rgb(255, 165, 0);
@@ -56,8 +83,11 @@ html {
         rgba(117, 141, 107, 0.30024509803921573) 53%,
         rgba(138, 176, 179, 0.0313375350140056) 90%
       );
+      background-position: center;
       border-radius: 10%;
       border: none;
+      animation: buttonAni 3s ease-in-out infinite;
+      animation-delay: 1s;
     }
   }
   .Button {
