@@ -1,11 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
 .Main {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   text-align: center;
-  margin-top: 50px;
-  background-color: orange;
+  background: rgb(255, 165, 0);
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 1) 0%,
+    rgba(117, 141, 107, 1) 53%,
+    rgba(138, 176, 179, 1) 90%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Title {
@@ -13,21 +33,46 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
   position: relative;
-  top: 30px;
+  margin-top: 7%;
+  text-align: center;
 }
 
-.Button {
-  transition: width 0.1s linear;
+.Button-Container {
   width: 95vw;
   height: 7vh;
-  font-size: large;
-  color: white;
-  background-color: black;
+  text-align: center;
+  margin: auto;
+  margin-top: 9%;
+  border: none;
 
   &:hover {
-    width: 20vw;
+    .Button {
+      width: 20%;
+      color: rgb(175, 93, 21);
+      background: rgb(255, 165, 0);
+      background: radial-gradient(
+        circle,
+        rgba(255, 165, 0, 0.4963235294117647) 0%,
+        rgba(117, 141, 107, 0.30024509803921573) 53%,
+        rgba(138, 176, 179, 0.0313375350140056) 90%
+      );
+      border-radius: 10%;
+      border: none;
+    }
+  }
+  .Button {
+    transition: width 0.5s ease;
+    width: 100%;
+    height: 100%;
+    font-size: large;
     color: rgb(175, 93, 21);
-    background-color: rgb(116, 255, 239);
-    border-style: none;
+    background: rgb(223, 255, 254);
+    background: linear-gradient(
+      90deg,
+      rgba(223, 255, 254, 0.04534313725490191) 0%,
+      rgba(255, 182, 242, 0.3310574229691877) 50%,
+      rgba(223, 255, 254, 0.04534313725490191) 100%
+    );
+    border: none;
   }
 }

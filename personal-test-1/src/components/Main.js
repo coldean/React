@@ -10,8 +10,8 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <p className="Title">제목</p>
-      <div>
+      <div className="Title">사다리타기</div>
+      <div className="Button-Container">
         <button className="Button" onClick={navigateToGame}>
           시작
         </button>

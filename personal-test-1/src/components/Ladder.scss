@@ -61,7 +61,8 @@ $delay: 0.3;
 }
 
 .Ladder-Horizontal.deleted {
-  background-color: white;
+  background: white;
+  visibility: hidden;
   &.start {
     margin-left: 0vw;
   }

@@ -109,7 +109,8 @@ const LadderGameSelect = ({ count, setStart, isStarted }) => {
           </button>
         ))}
       </div>
-      <div className={`Visible ${isStarted ? "visible" : "invisible"}`}>
+      <div>
+        {/*<div className={`Visible ${isStarted ? "visible" : "invisible"}`}>*/}
         {isStarted ? (
           <LadderStart
             count={count}

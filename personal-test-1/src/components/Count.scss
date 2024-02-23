@@ -1,7 +1,12 @@
 .Form {
   width: 80vw;
   height: 20vh;
-  background-color: orangered;
+  background: rgb(255, 69, 0);
+  background: radial-gradient(
+    circle,
+    rgba(255, 69, 0, 0.7596288515406162) 31%,
+    rgba(138, 176, 179, 0) 100%
+  );
   margin-left: auto;
   margin-right: auto;
   text-align: center;
