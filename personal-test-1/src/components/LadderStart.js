@@ -121,7 +121,11 @@ const LadderStart = ({
                 ></div>
               </div>
               {verId === count - 1 || horId === ladderStep ? null : ( // 가로
-                <div className="Ladder-Horizontal">
+                <div
+                  className={
+                    routeHor[horId][verId].check ? "Ladder-Horizontal" : ""
+                  }
+                >
                   <div
                     className={`Ladder-Horizontal ${
                       routeHor[horId][verId].check

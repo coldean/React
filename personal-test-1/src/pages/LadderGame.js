@@ -17,20 +17,23 @@ const LadderGame = () => {
 
   console.log("called LadderGame, Count = ", { count });
   return (
-    <div className="LadderGame-Main">
-      <LadderGameCount
-        className="LadderGameCount-Main"
-        editCount={editCount}
-        setStart={setStart}
-        isStarted={isStarted}
-      />
-      <LadderGameSelect
-        className="LadderGameSelect-Main"
-        count={count}
-        setStart={setStart}
-        isStarted={isStarted}
-      />
-    </div>
+    <>
+      <div className="Ambient-Background" />
+      <div className="LadderGame-Main">
+        <LadderGameCount
+          className="LadderGameCount-Main"
+          editCount={editCount}
+          setStart={setStart}
+          isStarted={isStarted}
+        />
+        <LadderGameSelect
+          className="LadderGameSelect-Main"
+          count={count}
+          setStart={setStart}
+          isStarted={isStarted}
+        />
+      </div>
+    </>
   );
 };
 

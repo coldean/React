@@ -22,7 +22,7 @@ $delay: 0.3;
   padding: 0;
 
   background-color: black;
-  color: white;
+  //color: white;
 }
 .Ladder-Vertical {
   @include ladderVertical(0);
@@ -54,14 +54,14 @@ $delay: 0.3;
   margin-left: 0.3vw;
   padding: 0;
   background-color: $background-color;
-  color: white;
+  //color: white;
 }
 .Ladder-Horizontal {
   @include ladderHorizontal(black);
 }
 
 .Ladder-Horizontal.deleted {
-  background: white;
+  //background: white;
   visibility: hidden;
   &.start {
     margin-left: 0vw;
