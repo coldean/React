@@ -1,0 +1,125 @@
+$delay: 0.3;
+
+.LadderGameLadder-Main-Vertical {
+  display: flex;
+  padding: 0;
+  margin-left: 5vw;
+  text-align: center;
+}
+
+.LadderGameLadder-Main-Horizontal {
+  display: flex;
+  padding: 0;
+  margin-left: 5vw;
+}
+
+///////////////////////// 세로
+@mixin ladderVertical($margin-right) {
+  width: 0.3vw;
+  height: 3vh;
+  margin-right: $margin-right;
+  margin-top: -0.3vw;
+  padding: 0;
+
+  background-color: black;
+  //color: white;
+}
+.Ladder-Vertical {
+  @include ladderVertical(0);
+  &.start {
+    margin-right: 5vw;
+  }
+}
+.Ladder-Vertical.selected {
+  animation-name: follow-ver;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+
+  @for $i from 0 through 20 {
+    &.delay-#{$i} {
+      animation-delay: #{$i * $delay}s;
+    }
+  }
+}
+
+.Ladder-Vertical-last {
+  @include ladderVertical(5vw);
+}
+
+/////////////////////////////////////// 가로
+@mixin ladderHorizontal($background-color) {
+  width: 5vw;
+  height: 0.3vw;
+  margin-left: 0.3vw;
+  padding: 0;
+  background-color: $background-color;
+  //color: white;
+}
+.Ladder-Horizontal {
+  @include ladderHorizontal(black);
+}
+
+.Ladder-Horizontal.deleted {
+  //background: white;
+  visibility: hidden;
+  &.start {
+    margin-left: 0vw;
+  }
+}
+
+.Ladder-Horizontal.selected {
+  animation-name: follow-hor;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  margin: 0;
+
+  @for $i from 0 through 20 {
+    &.delay-#{$i} {
+      animation-delay: #{$i * $delay}s;
+
+      &.reverse {
+        float: right;
+        animation-name: follow-hor-reverse;
+      }
+    }
+  }
+}
+
+@keyframes follow-hor {
+  0% {
+    width: 0%;
+    //height: 0.5vw;
+    background-color: black;
+  }
+  100% {
+    width: 100%;
+    //height: 0.5vw;
+    background-color: red;
+  }
+}
+@keyframes follow-hor-reverse {
+  0% {
+    width: 0%;
+    //height: 0.5vw;
+    background-color: black;
+  }
+  100% {
+    width: 100%;
+    //height: 0.5vw;
+    background-color: red;
+  }
+}
+@keyframes follow-ver {
+  0% {
+    height: 0%;
+    //width: 0.5vw;
+    background-color: black;
+  }
+  100% {
+    height: 100%;
+    //width: 0.5vw;
+    background-color: red;
+  }
+}

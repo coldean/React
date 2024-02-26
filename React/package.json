@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.70.0",
+    "styled-components": "^6.1.8"
+  }
+}
