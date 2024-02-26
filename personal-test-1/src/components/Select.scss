@@ -65,8 +65,7 @@
 .Visible {
   &.visible {
     visibility: visible;
-    animation-name: fade-in;
-    animation-duration: 1s;
+    //transition: 1 0.5s ease;
     &.result {
       @include result;
     }
