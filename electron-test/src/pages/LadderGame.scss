@@ -74,6 +74,40 @@
   z-index: 1;
 }
 
+.Fixed-GoBack {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  height: 30px;
+  width: 150px;
+  z-index: 2;
+  border: none;
+  border-radius: 20%;
+  background: rgb(148, 187, 233);
+  background: radial-gradient(
+    circle,
+    rgba(148, 187, 233, 0.7176120448179272) 56%,
+    rgba(255, 255, 255, 0.050945378151260545) 100%
+  );
+}
+
+.Fixed-Look {
+  position: fixed;
+  right: 10vw;
+  top: 23vh;
+  height: 15vh;
+  width: 15vh;
+  z-index: 1;
+  border: none;
+  border-radius: 30%;
+  background: rgb(148, 187, 233);
+  background: radial-gradient(
+    circle,
+    rgba(148, 187, 233, 0.7176120448179272) 56%,
+    rgba(255, 255, 255, 0.050945378151260545) 100%
+  );
+}
+
 .LadderGameCount-Main {
   display: flex;
   justify-content: center;

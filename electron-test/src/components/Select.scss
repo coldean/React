@@ -24,7 +24,7 @@
   background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 1) 90%,
+    rgba(255, 255, 255, 0.6) 90%,
     rgba(148, 187, 233, 0) 100%
   );
   &:focus {
@@ -40,11 +40,11 @@
   vertical-align: middle;
   text-align: center;
   border: none;
-  background: rgb(189, 189, 189);
+  background: rgba(155, 176, 0, 0.543);
   background: radial-gradient(
     circle,
-    rgb(223, 223, 223) 80%,
-    rgba(226, 226, 226, 0) 100%
+    rgba(148, 187, 233, 0.7176120448179272) 56%,
+    rgba(255, 255, 255, 0.050945378151260545) 100%
   );
 }
 
