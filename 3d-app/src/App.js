@@ -12,7 +12,7 @@ extend({ OrbitControls });
 
 const Box = (props) => {
   const ref = useRef();
-  const texture = useLoader(THREE.TextureLoader, "/texture/metal.jpg");
+  const texture = useLoader(THREE.TextureLoader, "/texture/wood.jpg");
   useFrame((state) => {
     ref.current.rotation.x += 0.01;
     ref.current.rotation.y += 0.01;
@@ -59,8 +59,8 @@ const Box = (props) => {
       <boxGeometry />
       <meshPhysicalMaterial
         color="white"
-        metalness={1}
-        roughness={0.3}
+        metalness={0}
+        roughness={1}
         map={texture}
       />
     </mesh>
@@ -103,26 +103,50 @@ const BackGround = (props) => {
   return <primitive attach="background" object={formatted.texture} />;
 };
 
+const clickHandler = (e) => {
+  if (window.activeMesh) {
+    window.activeMesh.material.color = new THREE.Color(
+      e.target.style.background
+    );
+  }
+};
+
 function App() {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <Canvas
-        shadows
-        style={{ background: "black" }}
-        camera={{ position: [3, 3, 3] }}
-      >
-        <Suspense fallback={null}>
-          <Box position={[0, 1, 0]} />
-          <Box position={[2, 1, 2]} />
-          <BackGround />
-        </Suspense>
-        <axesHelper args={[5]} />
-        <Orbit />
-        <ambientLight intensity={0.2} />
-        <Sun position={[0, 3, 0]} intensity={[50]} />
-        <Floor rotation={[-Math.PI / 2, 0, 0]} scale={[20, 10, 0.5]} />
-      </Canvas>
-    </div>
+    <>
+      <div style={{ position: "absolute", zIndex: 1 }}>
+        <div
+          onClick={clickHandler}
+          style={{ background: "blue", height: 50, width: 50 }}
+        />
+        <div
+          onClick={clickHandler}
+          style={{ background: "red", height: 50, width: 50 }}
+        />
+        <div
+          onClick={clickHandler}
+          style={{ background: "white", height: 50, width: 50 }}
+        />
+      </div>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Canvas
+          shadows
+          style={{ background: "black" }}
+          camera={{ position: [3, 3, 3] }}
+        >
+          <Suspense fallback={null}>
+            <Box position={[-1, 1, -1]} />
+            <Box position={[1, 1, 1]} />
+            <BackGround />
+          </Suspense>
+          <axesHelper args={[5]} />
+          <Orbit />
+          <ambientLight intensity={0.2} />
+          <Sun position={[0, 3, 0]} intensity={[50]} />
+          <Floor rotation={[-Math.PI / 2, 0, 0]} scale={[20, 10, 0.5]} />
+        </Canvas>
+      </div>
+    </>
   );
 }
 
