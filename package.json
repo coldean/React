@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@react-three/fiber": "^8.15.16",
     "classnames": "^2.5.1",
     "react-scripts": "^5.0.1",
     "sass": "^1.70.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "three": "^0.161.0",
+    "use-cannon": "^0.5.3"
   }
 }
