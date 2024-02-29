@@ -130,51 +130,50 @@ const LadderStart = ({
 
   return (
     <div>
-      {isAll === false &&
-        horLadder.map(({ id: horId }) => (
-          <div key={horId} className="LadderGameLadder-Main-Vertical">
-            {verLadder.map(({ id: verId }) => (
-              <div key={verId}>
-                {/*}
+      {horLadder.map(({ id: horId }) => (
+        <div key={horId} className="LadderGameLadder-Main-Vertical">
+          {verLadder.map(({ id: verId }) => (
+            <div key={verId}>
+              {/*}
               {horId === ladderStep // 끝인지 확인
                 ? routeVer[horId][verId].check
                   ? getDelay(routeVer[horId][verId].delay + 1)
                   : null
                 : null}{" "}
           */}
-                <div className="Ladder-Vertical start">
+              <div className="Ladder-Vertical start">
+                <div
+                  className={`Ladder-Vertical ${
+                    // 세로
+                    routeVer[horId][verId].check
+                      ? `selected delay-${routeVer[horId][verId].delay}`
+                      : ""
+                  }`}
+                ></div>
+              </div>
+              {verId === count - 1 || horId === ladderStep ? null : ( // 가로
+                <div
+                  className={
+                    routeHor[horId][verId].check ? "Ladder-Horizontal" : ""
+                  }
+                >
                   <div
-                    className={`Ladder-Vertical ${
-                      // 세로
-                      routeVer[horId][verId].check
-                        ? `selected delay-${routeVer[horId][verId].delay}`
+                    className={`Ladder-Horizontal ${
+                      routeHor[horId][verId].check
+                        ? `selected delay-${routeHor[horId][verId].delay} ${
+                            routeHor[horId][verId].toLeft ? "reverse" : ""
+                          }`
+                        : deletedLines[horId][verId]
+                        ? "deleted start"
                         : ""
                     }`}
                   ></div>
                 </div>
-                {verId === count - 1 || horId === ladderStep ? null : ( // 가로
-                  <div
-                    className={
-                      routeHor[horId][verId].check ? "Ladder-Horizontal" : ""
-                    }
-                  >
-                    <div
-                      className={`Ladder-Horizontal ${
-                        routeHor[horId][verId].check
-                          ? `selected delay-${routeHor[horId][verId].delay} ${
-                              routeHor[horId][verId].toLeft ? "reverse" : ""
-                            }`
-                          : deletedLines[horId][verId]
-                          ? "deleted start"
-                          : ""
-                      }`}
-                    ></div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
