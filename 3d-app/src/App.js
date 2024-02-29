@@ -49,7 +49,6 @@ const Box = (props) => {
     <mesh
       {...props}
       ref={ref}
-      position={props.position}
       castShadow
       receiveShadow
       onPointerEnter={handlePointerEnter}

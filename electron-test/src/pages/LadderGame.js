@@ -1,15 +1,19 @@
 import { useState, useCallback } from "react";
 import LadderGameSelect from "../components/Select";
 import LadderGameCount from "../components/Count";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import "./LadderGame.scss";
 
 const LadderGame = () => {
-  const [count, setCount] = useState(2);
-  const [isStarted, setIsStarted] = useState(false);
   const [look, setLook] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const gameInfo = { ...location.state };
+
+  const [count, setCount] = useState(gameInfo.count);
+  const [isStarted, setIsStarted] = useState(gameInfo.isStarted);
+  const [inputs, setInputs] = useState(gameInfo.inputs); // 이름들 input
 
   const editCount = useCallback((n) => {
     setCount(n);
@@ -29,7 +33,7 @@ const LadderGame = () => {
     console.log("lookLadder: " + mouseDown);
   }, []);
 
-  console.log("called LadderGame, Count = ", { count });
+  //console.log("called LadderGame, Count = ", { gameInfo.count });
   return (
     <>
       <div className="Ambient-Background" />
@@ -47,18 +51,22 @@ const LadderGame = () => {
         사다리 보기
       </button>
       <div className="LadderGame-Main">
+        <div className="LadderGameCount-Main"></div>
+        {/*}
         <LadderGameCount
           className="LadderGameCount-Main"
           editCount={editCount}
           setStart={setStart}
           isStarted={isStarted}
         />
+  */}
         <LadderGameSelect
           className="LadderGameSelect-Main"
           count={count}
           setStart={setStart}
           isStarted={isStarted}
           look={look}
+          names={inputs}
         />
       </div>
     </>

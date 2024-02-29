@@ -6,9 +6,9 @@ import Ladder from "./Ladder";
 import LadderStart from "./LadderStart";
 import "./Select.scss";
 
-const LadderGameSelect = ({ count, setStart, isStarted, look }) => {
-  const [inputs, setInputs] = useState([]);
-  const [buttons, setButtons] = useState([]);
+const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
+  const [inputs, setInputs] = useState(names);
+  const [buttons, setButtons] = useState(names);
   const [results, setResults] = useState([{ id: 0, text: "null" }]); //꼼수 위해 억지 값 하나 저장
   const [final, setFinal] = useState(0);
   const [selectedButton, setSelectedButton] = useState(null);
@@ -31,8 +31,8 @@ const LadderGameSelect = ({ count, setStart, isStarted, look }) => {
       newInputs.push({ id: i, value: i + 1 });
       newResults.push({ id: i, text: "" });
     }
-    setInputs(newInputs);
-    setButtons(newButtons);
+    //setInputs(newInputs);
+    //setButtons(newButtons);
     setResults(newResults);
     setFinal(0);
   }, [count]);
@@ -103,9 +103,9 @@ const LadderGameSelect = ({ count, setStart, isStarted, look }) => {
         ))}
       </div>
       <div>
-        {buttons.map(({ id, name }) => (
+        {buttons.map(({ id, value }) => (
           <button className="SelectButton" key={id} onClick={onClick(id)}>
-            {name}
+            {value}
           </button>
         ))}
       </div>
