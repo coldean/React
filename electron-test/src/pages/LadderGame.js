@@ -37,7 +37,6 @@ const LadderGame = () => {
     console.log("lookLadder: " + mouseDown);
   }, []);
 
-  //console.log("called LadderGame, Count = ", { gameInfo.count });
   return (
     <>
       <div className="Ambient-Background" />
@@ -48,6 +47,10 @@ const LadderGame = () => {
       <button className="Fixed-Refresh" onClick={refresh}>
         새로고침
       </button>
+      <p className="Guide-Time">
+        사다리 진행 시간 조절 방법: Select.js의 delayTime과 Ladder.scss의
+        delayTime 조절
+      </p>
       <button
         className="Fixed-Look"
         onMouseDown={() => lookLadder(true)}
@@ -56,14 +59,6 @@ const LadderGame = () => {
         사다리 보기
       </button>
       <div className="LadderGame-Main">
-        {/*}
-        <LadderGameCount
-          className="LadderGameCount-Main"
-          editCount={editCount}
-          setStart={setStart}
-          isStarted={isStarted}
-        />
-  */}
         <LadderGameSelect
           className="LadderGameSelect-Main"
           count={count}

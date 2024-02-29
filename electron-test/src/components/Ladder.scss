@@ -1,4 +1,4 @@
-$delay: 0.3;
+$delayTime: 0.3;
 
 .LadderGameLadder-Main-Vertical {
   display: flex;
@@ -32,13 +32,13 @@ $delay: 0.3;
 }
 .Ladder-Vertical.selected {
   animation-name: follow-ver;
-  animation-duration: 0.6s;
+  animation-duration: $delayTime * 2s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 
   @for $i from 0 through 20 {
     &.delay-#{$i} {
-      animation-delay: #{$i * $delay}s;
+      animation-delay: #{$i * $delayTime}s;
     }
   }
 }
@@ -70,14 +70,14 @@ $delay: 0.3;
 
 .Ladder-Horizontal.selected {
   animation-name: follow-hor;
-  animation-duration: 0.6s;
+  animation-duration: $delayTime * 2s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
   margin: 0;
 
   @for $i from 0 through 20 {
     &.delay-#{$i} {
-      animation-delay: #{$i * $delay}s;
+      animation-delay: #{$i * $delayTime}s;
 
       &.reverse {
         float: right;

@@ -6,10 +6,7 @@ import LadderGameCount from "./Count";
 const Main = () => {
   const [count, setCount] = useState(2);
   const [isStarted, setIsStarted] = useState(false);
-
   const [inputs, setInputs] = useState([]);
-  //const [buttons, setButtons] = useState([]);
-  //const [results, setResults] = useState([{ id: 0, text: "null" }]); //꼼수 위해 억지 값 하나 저장
 
   const navigate = useNavigate();
   const navigateToGame = () => {

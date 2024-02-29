@@ -1,5 +1,4 @@
-// 현재는 result에 0번 인덱스 출력되게 임시로 해놓음. 수정 필요.
-// 숨겨뒀다가 결과 나오면 보이는 형식으로 css 수정하면 될 듯 함.
+// isAll이 true 일 때 결과 모두 보여주도록 해야 함
 
 import { useState, useEffect, useCallback } from "react";
 import Ladder from "./Ladder";
@@ -15,20 +14,25 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
   const [deletedLines, setDeletedLines] = useState();
   const [resultDelay, setResultDelay] = useState(0);
   const [resultVisible, setResultVisible] = useState(false);
+  const [isAll, setIsAll] = useState(false);
 
   /////////////////////////
   ///////사다리 깊이////////
   const ladderStep = 10; //
   /////////////////////////
+  /////////////////////////
+  ///////딜레이 시간////////
+  const delayTime = 0.3; //
+  /////////////////////////
+  /////////////////////////
 
   useEffect(() => {
-    const newButtons = [];
-    const newInputs = [];
+    //const newButtons = [];
+    //const newInputs = [];
     const newResults = [];
-    //results.pop();
     for (let i = 0; i < count; i++) {
-      newButtons.push({ id: i, name: i + 1 });
-      newInputs.push({ id: i, value: i + 1 });
+      //newButtons.push({ id: i, name: i + 1 });
+      //newInputs.push({ id: i, value: i + 1 });
       newResults.push({ id: i, text: "" });
     }
     //setInputs(newInputs);
@@ -43,7 +47,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
       const timer = setTimeout(() => {
         setResultVisible(true); // 결과를 표시하기 위한 상태를 변경
         console.log("time passed " + resultDelay);
-      }, (resultDelay + 2) * 300); // resultDelay 시간 이후에 결과를 표시
+      }, (resultDelay + 2) * delayTime * 1000); // resultDelay 시간 이후에 결과를 표시
 
       return () => clearTimeout(timer);
     }
@@ -58,6 +62,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
     setDeletedLines(lines);
   }, []);
 
+  /*
   const onChangeSelect = useCallback((e, id) => {
     const newValue = e.target.value;
     setInputs((prevInputs) =>
@@ -71,6 +76,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
       )
     );
   }, []);
+*/
 
   const onChangeResult = useCallback((e, id) => {
     const newValue = e.target.value;
@@ -91,19 +97,6 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
 
   return (
     <div className="LadderGameSelect-Main">
-      {/*
-      <div>
-        {inputs.map(({ id, value }) => (
-          <input
-            key={id}
-            className="SelectInput"
-            name={id}
-            onChange={(e) => onChangeSelect(e, id)}
-            value={value}
-          ></input>
-        ))}
-      </div>
-        */}
       <div>
         {buttons.map(({ id, value }) => (
           <button className="SelectButton" key={id} onClick={onClick(id)}>
@@ -121,6 +114,9 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
             selectedButton={selectedButton}
             finalId={finalId}
             getDelay={getDelay}
+            isAll={isAll}
+            buttons={buttons}
+            results={results}
           />
         ) : (
           <Ladder
