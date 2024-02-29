@@ -5,6 +5,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  display: flex;
   position: relative;
   background: rgb(85, 85, 227);
   background: linear-gradient(
@@ -43,6 +44,7 @@
   }
 }
 
+/*
 .Fixed-Count {
   position: fixed;
   top: 4.55vh;
@@ -63,10 +65,10 @@
   background-color: rgba(255, 255, 255, 0);
   z-index: 1;
 }
-
+*/
 .Fixed-Result {
   position: fixed;
-  top: 79%;
+  top: 68%;
   left: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
@@ -108,14 +110,6 @@
   );
 }
 
-.LadderGameCount-Main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .LadderGameSelect-Main {
-  //margin-left: auto;
-  //margin-right: auto;
+  margin-top: 17%;
 }

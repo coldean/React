@@ -37,8 +37,6 @@ const LadderGame = () => {
   return (
     <>
       <div className="Ambient-Background" />
-      <p className="Fixed-Count">개수 입력</p>
-      <p className="Fixed-Name">이름 입력</p>
       <p className="Fixed-Result">결과 입력</p>
       <button className="Fixed-GoBack" onClick={goBack}>
         메인 화면으로
@@ -51,7 +49,6 @@ const LadderGame = () => {
         사다리 보기
       </button>
       <div className="LadderGame-Main">
-        <div className="LadderGameCount-Main"></div>
         {/*}
         <LadderGameCount
           className="LadderGameCount-Main"

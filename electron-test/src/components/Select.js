@@ -91,6 +91,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
 
   return (
     <div className="LadderGameSelect-Main">
+      {/*
       <div>
         {inputs.map(({ id, value }) => (
           <input
@@ -102,6 +103,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
           ></input>
         ))}
       </div>
+        */}
       <div>
         {buttons.map(({ id, value }) => (
           <button className="SelectButton" key={id} onClick={onClick(id)}>

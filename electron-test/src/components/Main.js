@@ -17,9 +17,7 @@ const Main = () => {
     navigate("/laddergame", {
       state: {
         count: count,
-        //editCount: editCount,
         isStarted: isStarted,
-        //setStart: setStart,
         inputs: inputs,
       },
     });
@@ -52,6 +50,8 @@ const Main = () => {
 
   return (
     <div className="Main">
+      <p className="Fixed-Count">인원 수 입력 후 엔터</p>
+      <p className="Fixed-Name">이름 입력 후 시작 클릭</p>
       <div className="Title">사다리타기</div>
       <LadderGameCount
         className="LadderGameCount-Main"
