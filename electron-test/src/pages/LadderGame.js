@@ -27,6 +27,10 @@ const LadderGame = () => {
     navigate("/");
   };
 
+  const refresh = () => {
+    window.location.reload();
+  };
+
   const lookLadder = useCallback((mouseDown) => {
     if (mouseDown) setLook(true);
     else setLook(false);
@@ -37,9 +41,12 @@ const LadderGame = () => {
   return (
     <>
       <div className="Ambient-Background" />
-      <p className="Fixed-Result">결과 입력</p>
+
       <button className="Fixed-GoBack" onClick={goBack}>
         메인 화면으로
+      </button>
+      <button className="Fixed-Refresh" onClick={refresh}>
+        새로고침
       </button>
       <button
         className="Fixed-Look"

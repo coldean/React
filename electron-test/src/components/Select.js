@@ -141,6 +141,7 @@ const LadderGameSelect = ({ count, setStart, isStarted, look, names }) => {
           ></input>
         ))}
       </div>
+      <p className="Guide-Result">결과 입력</p>
       <p
         className={`Visible ${
           resultVisible ? "visible result" : "invisible result"

@@ -66,20 +66,28 @@
   z-index: 1;
 }
 */
-.Fixed-Result {
-  position: fixed;
-  top: 68%;
-  left: 50%;
-  transform: translateY(-50%);
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0);
-  z-index: 1;
-}
 
 .Fixed-GoBack {
   position: fixed;
   top: 10px;
   left: 10px;
+  height: 30px;
+  width: 150px;
+  z-index: 2;
+  border: none;
+  border-radius: 20%;
+  background: rgb(148, 187, 233);
+  background: radial-gradient(
+    circle,
+    rgba(148, 187, 233, 0.7176120448179272) 56%,
+    rgba(255, 255, 255, 0.050945378151260545) 100%
+  );
+}
+
+.Fixed-Refresh {
+  position: fixed;
+  top: 10px;
+  left: 180px;
   height: 30px;
   width: 150px;
   z-index: 2;
@@ -111,5 +119,5 @@
 }
 
 .LadderGameSelect-Main {
-  margin-top: 17%;
+  margin-top: 18%;
 }
